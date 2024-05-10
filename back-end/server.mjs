@@ -1,7 +1,9 @@
 import express from "express"
 import dotenv from "dotenv"
+
 import authRoutes from "./routes/auth.routes.mjs"
 import messageRoute from "./routes/message.routes.mjs"
+import userRoute from "./routes/user.routes.mjs"
 import cookieParser from "cookie-parser"
 import connectDb from "../database/connect-db.mjs"
 dotenv.config()
@@ -26,3 +28,4 @@ app.get("/",(req,res)=>{
 
 app.use("/api/auth",authRoutes)
 app.use("/api/messages",messageRoute)
+app.use("/api/users",userRoute)
