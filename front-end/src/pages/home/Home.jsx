@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "../../components/sidebar/Sidebar.jsx";
+import MessageContainer from "../../components/messages/MessageContainer.jsx";
 const Home = () => {
   return (
     <div
@@ -7,7 +8,7 @@ const Home = () => {
   backdrop-filter backdrop-blur-lg bg-opacity-0"
     >
       <Sidebar />
-      {/* <MessageContainer/> */}
+      <MessageContainer />
     </div>
   );
 };
