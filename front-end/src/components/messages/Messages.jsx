@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Message from "./Message";
+import useGetMessage from "../../hooks/useGetMessage";
 const Messages = () => {
+  const { messages } = useGetMessage();
+  const lastMessageaRef = useRef();
+
+  useEffect(() => {
+    setTimeout(() => {
+      lastMessageaRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  }, [messages]);
+  console.log("messages", messages);
   return (
     <div className="p-4 flex-1 overflow-auto">
-      <Message />
-      <Message />
-      <Message />
-      <Message />
-      <Message />
-      <Message />
-      <Message />
-      <Message />
-      <Message />
-      <Message />
+      {messages.length > 0 &&
+        messages.map((message) => {
+          return (
+            <div key={message._id} ref={lastMessageaRef}>
+              <Message message={message} />;
+            </div>
+          );
+        })}
+      {messages.length === 0 && (
+        <p className="text-center text-white">
+          Send message to start conversation
+        </p>
+      )}
     </div>
   );
 };
