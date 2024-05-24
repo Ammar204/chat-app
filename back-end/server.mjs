@@ -6,15 +6,16 @@ import messageRoute from "./routes/message.routes.mjs"
 import userRoute from "./routes/user.routes.mjs"
 import cookieParser from "cookie-parser"
 import connectDb from "../database/connect-db.mjs"
+import {app,server,io} from "./sockets/socket.js"
 dotenv.config()
 
 
-const app = express()
+
 app.use(express.json())
 app.use(cookieParser())
 const PORT = process.env.PORT || 5000
 
-app.listen(PORT,()=>{{
+server.listen(PORT,()=>{{
 
     connectDb()
 
