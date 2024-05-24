@@ -4,8 +4,6 @@ import toast from "react-hot-toast";
 const useGetConversation = () => {
   const [conversations, setConversations] = useState([]);
 
-  
-
   const getConversation = useCallback(async (queryParams = {}) => {
     let endpoint = "/api/users";
 
@@ -28,6 +26,9 @@ const useGetConversation = () => {
     }
   });
 
+  // useEffect(() => {
+  //   getConversation();
+  // }, []);
 
   return { conversations, getConversation };
 };
