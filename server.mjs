@@ -6,9 +6,9 @@ import authRoutes from "./routes/auth.routes.mjs";
 import messageRoute from "./routes/message.routes.mjs";
 import userRoute from "./routes/user.routes.mjs";
 import cookieParser from "cookie-parser";
-import connectDb from "../database/connect-db.mjs";
+import connectDb from "./database/connect-db.mjs";
 import { app, server, io } from "./sockets/socket.js";
-import apiRoutes from "./routes/api.routes.mjs"
+import apiRoutes from "./routes/api.routes.mjs";
 dotenv.config();
 
 app.use(express.json());
